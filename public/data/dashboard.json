@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-05-09T19:00:00Z",
+  "platforms": {
+    "phemex": {
+      "total_equity": 4123.45,
+      "total_pnl": 123.45,
+      "pnl_percentage": 3.09,
+      "last_updated": "2026-05-09T19:00:00Z",
+      "strategies": [
+        {
+          "name": "BTC Grid Bot",
+          "equity": 2500.00,
+          "pnl": 87.50,
+          "pnl_percentage": 3.62,
+          "status": "active",
+          "open_positions": 3,
+          "positions": [
+            {
+              "symbol": "BTCUSDT",
+              "side": "long",
+              "size": 0.05,
+              "entry_price": 98500,
+              "current_price": 99200,
+              "pnl": 35.00,
+              "opened_at": "2026-05-09T15:30:00Z"
+            },
+            {
+              "symbol": "BTCUSDT",
+              "side": "long",
+              "size": 0.03,
+              "entry_price": 97800,
+              "current_price": 99200,
+              "pnl": 42.00,
+              "opened_at": "2026-05-09T12:15:00Z"
+            },
+            {
+              "symbol": "BTCUSDT",
+              "side": "short",
+              "size": 0.02,
+              "entry_price": 100500,
+              "current_price": 99200,
+              "pnl": 26.00,
+              "opened_at": "2026-05-09T18:00:00Z"
+            }
+          ]
+        },
+        {
+          "name": "ETH DCA",
+          "equity": 1623.45,
+          "pnl": 35.95,
+          "pnl_percentage": 2.26,
+          "status": "active",
+          "open_positions": 1,
+          "positions": [
+            {
+              "symbol": "ETHUSDT",
+              "side": "long",
+              "size": 0.5,
+              "entry_price": 3200,
+              "current_price": 3271.90,
+              "pnl": 35.95,
+              "opened_at": "2026-05-08T10:00:00Z"
+            }
+          ]
+        }
+      ]
+    },
+    "hyperliquid": {
+      "total_equity": 2890.12,
+      "total_pnl": -45.30,
+      "pnl_percentage": -1.54,
+      "last_updated": "2026-05-09T19:00:00Z",
+      "strategies": [
+        {
+          "name": "Momentum Scalper",
+          "equity": 2890.12,
+          "pnl": -45.30,
+          "pnl_percentage": -1.54,
+          "status": "active",
+          "open_positions": 2,
+          "positions": [
+            {
+              "symbol": "SOL-PERP",
+              "side": "long",
+              "size": 10,
+              "entry_price": 145.50,
+              "current_price": 143.20,
+              "pnl": -23.00,
+              "opened_at": "2026-05-09T17:45:00Z"
+            },
+            {
+              "symbol": "ARB-PERP",
+              "side": "short",
+              "size": 100,
+              "entry_price": 0.85,
+              "current_price": 0.873,
+              "pnl": -22.30,
+              "opened_at": "2026-05-09T16:30:00Z"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

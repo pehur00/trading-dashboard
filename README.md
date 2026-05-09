@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trading Dashboard
 
-## Getting Started
+Modern Next.js dashboard voor trading bots - gehost op Vercel.
 
-First, run the development server:
+## Features
+
+- 🖥️ **Multi-platform support** - Phemex, Hyperliquid, OKX, etc.
+- 📊 **Real-time overview** - Equity, PnL, open posities per strategie
+- 📱 **Responsive design** - Werkt op desktop en mobiel
+- 🌙 **Dark mode** - Standaard dark theme
+- ⚡ **Live updates** - Auto-refresh elke minuut + handmatige refresh
+
+## Development
 
 ```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build voor productie
+npm run build
+
+# Start productie server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Data Structuur
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Het dashboard leest data uit `public/data/dashboard.json`:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```json
+{
+  "generated_at": "2026-05-09T19:00:00Z",
+  "platforms": {
+    "phemex": {
+      "total_equity": 4000,
+      "total_pnl": 123.45,
+      "pnl_percentage": 3.09,
+      "last_updated": "2026-05-09T19:00:00Z",
+      "strategies": [
+        {
+          "name": "BTC Grid Bot",
+          "equity": 2500,
+          "pnl": 87.50,
+          "pnl_percentage": 3.62,
+          "status": "active",
+          "open_positions": 3,
+          "positions": [...]
+        }
+      ]
+    }
+  }
+}
+```
 
-## Learn More
+## Vercel Deploy
 
-To learn more about Next.js, take a look at the following resources:
+1. **GitHub repo pushen:**
+```bash
+git remote add origin https://github.com/pehur00/trading-dashboard.git
+git branch -M main
+git push -u origin main
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Connect met Vercel:**
+- Ga naar [vercel.com](https://vercel.com)
+- Import de GitHub repo
+- Deploy automatisch bij commits naar `main`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Optioneel: custom domain**
+- Voeg domein toe in Vercel dashboard
+- Update DNS records
 
-## Deploy on Vercel
+## Data Pipeline
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Om de data actueel te houden:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Optie A: Cronjob update JSON**
+```bash
+# Voorbeeld: update elke 4 uur
+0 */4 * * * node /path/to/update-script.js
+```
+
+**Optie B: API Route**
+- Maak een API route die live data ophaalt
+- Dashboard fetcht via `/api/data` endpoint
+
+## Project Structuur
+
+```
+trading-dashboard/
+├── src/
+│   └── app/
+│       ├── page.tsx              # Home dashboard
+│       ├── [platform]/page.tsx   # Platform detail pagina
+│       ├── layout.tsx            # Root layout
+│       └── globals.css           # Global styles
+├── public/
+│   └── data/
+│       └── dashboard.json        # Dashboard data
+├── package.json
+└── README.md
+```
+
+## Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Styling:** Tailwind CSS
+- **Language:** TypeScript
+- **Hosting:** Vercel
+- **Charts:** (optioneel) Recharts of Chart.js toevoegen
+
+## License
+
+MIT
