@@ -21,7 +21,7 @@ type Trader = {
   current_equity: number; account_performance: number; account_performance_pct: number;
   forecast_performance?: number; forecast_performance_pct?: number;
   realized_journal_pnl: number; open_unrealized_pnl: number; closed_trades: number; wins: number; losses: number;
-  winrate: number; avg_rr_at_open?: number | null; rr_at_open_count?: number; open_positions_count: number; open_positions: Position[]; closed_trade_log: Trade[];
+  winrate: number; avg_rr_total?: number | null; rr_total_count?: number; avg_rr_open_positions?: number | null; rr_open_count?: number; avg_rr_closed_trades?: number | null; rr_closed_count?: number; avg_rr_at_open?: number | null; rr_at_open_count?: number; open_positions_count: number; open_positions: Position[]; closed_trade_log: Trade[];
   equity_curve: Point[]; last_trade_log_sync_at?: string; data_quality: string;
 };
 
@@ -31,12 +31,13 @@ type DashboardData = {
   traders: Trader[];
   totals: {
     start_equity: number; current_equity: number; account_performance: number; forecast_performance?: number; external_cash_flow?: number; open_unrealized_pnl: number;
-    realized_journal_pnl: number; open_positions_count: number; closed_trades: number; avg_rr_at_open?: number | null;
+    realized_journal_pnl: number; open_positions_count: number; closed_trades: number; avg_rr_total?: number | null; rr_total_count?: number; avg_rr_open_positions?: number | null; rr_open_count?: number; avg_rr_closed_trades?: number | null; rr_closed_count?: number; avg_rr_at_open?: number | null;
   };
 };
 
 const money = (v: number, digits = 2) => `${v >= 0 ? '+' : '-'}$${Math.abs(v).toFixed(digits)}`;
 const usd = (v: number, digits = 2) => `$${v.toFixed(digits)}`;
+const rr = (v?: number | null) => typeof v === 'number' ? `${v.toFixed(2)}R` : '—';
 const compactDate = (v?: string) => v ? new Date(v).toLocaleString('nl-NL', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) : '—';
 const pnlClass = (v: number) => v >= 0 ? 'text-emerald-300' : 'text-rose-300';
 
@@ -138,9 +139,9 @@ function TraderCard({ trader }: { trader: Trader }) {
       </div>
       <div className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-4">
         <Metric label="Winrate" value={`${trader.winrate.toFixed(1)}%`} />
-        <Metric label="Gem. RR bij open" value={trader.avg_rr_at_open ? `${trader.avg_rr_at_open.toFixed(2)}R` : '—'} />
-        <Metric label="Trades voor RR" value={`${trader.rr_at_open_count ?? 0}`} />
-        <Metric label="Gesloten trades" value={`${trader.closed_trades}`} />
+        <Metric label="Gem. RR totaal" value={rr(trader.avg_rr_total ?? trader.avg_rr_at_open)} />
+        <Metric label="RR open / gesloten" value={`${rr(trader.avg_rr_open_positions)} / ${rr(trader.avg_rr_closed_trades)}`} />
+        <Metric label="RR trades bekend" value={`${trader.rr_total_count ?? trader.rr_at_open_count ?? 0}`} />
       </div>
       <p className="mt-3 text-xs text-slate-400">Open uPnL nu: <span className={pnlClass(trader.open_unrealized_pnl)}>{money(trader.open_unrealized_pnl)}</span> · PNL bovenaan telt alleen gesloten posities.</p>
       <div className="mt-5 grid gap-4 lg:grid-cols-2">
@@ -200,7 +201,7 @@ export default function Home() {
       </header>
       {error && <div className="rounded-2xl border border-rose-500/40 bg-rose-950/40 p-4 text-rose-200">Fout bij laden: {error}</div>}
       {data && <>
-        <div className="grid gap-3 md:grid-cols-4"><Metric label="Totale equity" value={usd(data.totals.current_equity)} /><Metric label="PNL gesloten" value={money(data.totals.account_performance)} tone={pnlClass(data.totals.account_performance)} /><Metric label="Forecast incl. uPnL" value={money(data.totals.forecast_performance ?? (data.totals.account_performance + data.totals.open_unrealized_pnl))} tone={pnlClass(data.totals.forecast_performance ?? (data.totals.account_performance + data.totals.open_unrealized_pnl))} /><Metric label="Gem. RR bij open" value={data.totals.avg_rr_at_open ? `${data.totals.avg_rr_at_open.toFixed(2)}R` : '—'} /></div>
+        <div className="grid gap-3 md:grid-cols-4"><Metric label="Totale equity" value={usd(data.totals.current_equity)} /><Metric label="PNL gesloten" value={money(data.totals.account_performance)} tone={pnlClass(data.totals.account_performance)} /><Metric label="Forecast incl. uPnL" value={money(data.totals.forecast_performance ?? (data.totals.account_performance + data.totals.open_unrealized_pnl))} tone={pnlClass(data.totals.forecast_performance ?? (data.totals.account_performance + data.totals.open_unrealized_pnl))} /><Metric label="Gem. RR totaal" value={`${rr(data.totals.avg_rr_total ?? data.totals.avg_rr_at_open)} · ${data.totals.rr_total_count ?? 0} trades`} /></div>
         <EquityChart traders={traders} />
         <div className="grid gap-6">{traders.map((t) => <TraderCard trader={t} key={t.id} />)}</div>
         <footer className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-slate-400">Bron: {data.source}. Laatste syncs: {traders.map(t => `${t.name} ${compactDate(t.last_trade_log_sync_at)}`).join(' · ')}</footer>

@@ -94,6 +94,13 @@ def fixed_rr_from_state_position(p):
     return calc_rr(p.get('side'), fnum(p.get('entry')), fnum(p.get('initial_sl') or p.get('sl'), None), tp)
 
 
+def weighted_avg(rows, value_key: str, count_key: str):
+    total_count = sum(row.get(count_key, 0) for row in rows)
+    if not total_count:
+        return None
+    return round(sum((row.get(value_key) or 0) * row.get(count_key, 0) for row in rows) / total_count, 2)
+
+
 def build_trader(trader: str):
     status = load_json(STATUS[trader], {})
     state = load_json(PROJECT / '.state' / trader / 'live_execution_state.json', {})
@@ -112,8 +119,9 @@ def build_trader(trader: str):
     forecast_perf = realised_journal + open_upnl
     wins = sum(1 for t in closed if fnum(t.get('realized_pnl_usdt')) > 0)
     losses = sum(1 for t in closed if fnum(t.get('realized_pnl_usdt')) < 0)
-    opening_rr_values = [rr for rr in (planned_rr_from_trade(t) for t in closed) if rr is not None]
-    opening_rr_values += [rr for rr in (fixed_rr_from_state_position(p) for p in state.get('open_positions') or []) if rr is not None]
+    closed_rr_values = [rr for rr in (planned_rr_from_trade(t) for t in closed) if rr is not None]
+    open_rr_values = [rr for rr in (fixed_rr_from_state_position(p) for p in state.get('open_positions') or []) if rr is not None]
+    total_rr_values = closed_rr_values + open_rr_values
     first_trade_time = next((t.get('opened_at') or t.get('closed_at') for t in closed if t.get('opened_at') or t.get('closed_at')), None)
     curve_start_time = first_trade_time or state.get('last_reset_date') or datetime.now(timezone.utc).isoformat()
     curve = [{'time': curve_start_time, 'value': 0.0, 'label': 'start (cashflow gecorrigeerd)'}]
@@ -194,8 +202,17 @@ def build_trader(trader: str):
         'wins': wins,
         'losses': losses,
         'winrate': round((wins / (wins + losses) * 100) if wins + losses else 0, 1),
-        'avg_rr_at_open': round(sum(opening_rr_values) / len(opening_rr_values), 2) if opening_rr_values else None,
-        'rr_at_open_count': len(opening_rr_values),
+        # Average planned/opening RR across both currently-open and already-closed trades.
+        # Values are included only when initial/fixed opening RR is known.
+        'avg_rr_total': round(sum(total_rr_values) / len(total_rr_values), 2) if total_rr_values else None,
+        'rr_total_count': len(total_rr_values),
+        'avg_rr_open_positions': round(sum(open_rr_values) / len(open_rr_values), 2) if open_rr_values else None,
+        'rr_open_count': len(open_rr_values),
+        'avg_rr_closed_trades': round(sum(closed_rr_values) / len(closed_rr_values), 2) if closed_rr_values else None,
+        'rr_closed_count': len(closed_rr_values),
+        # Backward-compatible aliases for older dashboard clients.
+        'avg_rr_at_open': round(sum(total_rr_values) / len(total_rr_values), 2) if total_rr_values else None,
+        'rr_at_open_count': len(total_rr_values),
         'open_positions_count': len(open_positions),
         'open_positions': positions,
         'closed_trade_log': trades,
@@ -223,11 +240,13 @@ def main():
             'realized_journal_pnl': round(sum(t['realized_journal_pnl'] for t in traders), 6),
             'open_positions_count': sum(t['open_positions_count'] for t in traders),
             'closed_trades': sum(t['closed_trades'] for t in traders),
-            'avg_rr_at_open': round(
-                sum((t.get('avg_rr_at_open') or 0) * t.get('rr_at_open_count', 0) for t in traders)
-                / max(1, sum(t.get('rr_at_open_count', 0) for t in traders)),
-                2,
-            ),
+            'avg_rr_total': weighted_avg(traders, 'avg_rr_total', 'rr_total_count'),
+            'rr_total_count': sum(t.get('rr_total_count', 0) for t in traders),
+            'avg_rr_open_positions': weighted_avg(traders, 'avg_rr_open_positions', 'rr_open_count'),
+            'rr_open_count': sum(t.get('rr_open_count', 0) for t in traders),
+            'avg_rr_closed_trades': weighted_avg(traders, 'avg_rr_closed_trades', 'rr_closed_count'),
+            'rr_closed_count': sum(t.get('rr_closed_count', 0) for t in traders),
+            'avg_rr_at_open': weighted_avg(traders, 'avg_rr_total', 'rr_total_count'),
         },
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
