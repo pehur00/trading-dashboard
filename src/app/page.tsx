@@ -162,8 +162,8 @@ function TraderCard({ trader }: { trader: Trader }) {
           <h4 className="mb-2 font-semibold text-slate-200">Laatste gesloten trades</h4>
           <div className="space-y-2">
             {trader.closed_trade_log.slice(0, 6).map((t) => <div key={`${t.symbol}-${t.closed_at}`} className="rounded-xl bg-black/25 p-3 text-sm">
-              <div className="flex justify-between"><b>{t.symbol}</b><span className={pnlClass(t.net_pnl)}>{money(t.net_pnl, 4)} · RR open {t.rr_at_open?.toFixed(2) ?? '—'}R</span></div>
-              <p className="mt-1 text-slate-400">{t.side} · {t.entry} → {t.exit} · fees ${t.fees.toFixed(4)}</p>
+              <div className="flex justify-between"><b>{t.symbol}</b><span className={pnlClass(t.net_pnl)}>{money(t.net_pnl, 4)} · gerealiseerd {t.r_multiple?.toFixed(2) ?? '—'}R</span></div>
+              <p className="mt-1 text-slate-400">{t.side} · {t.entry} → {t.exit} · plan RR {t.rr_at_open?.toFixed(2) ?? '—'}R · fees ${t.fees.toFixed(4)}</p>
               <p className="text-xs text-slate-500">gesloten {compactDate(t.closed_at)} · {t.source}</p>
             </div>)}
           </div>

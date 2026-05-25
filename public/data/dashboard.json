@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T20:20:18.766566+00:00",
+  "generated_at": "2026-05-25T20:35:12.401637+00:00",
   "source": "Phemex read-only status + synced fill journals; sanitized for public dashboard",
   "traders": [
     {
@@ -13,10 +13,10 @@
       "current_equity": 118.57095,
       "account_performance": 5.284981,
       "account_performance_pct": 4.533,
-      "forecast_performance": 8.084581,
-      "forecast_performance_pct": 6.934,
+      "forecast_performance": 7.634181,
+      "forecast_performance_pct": 6.547,
       "realized_journal_pnl": 5.284981,
-      "open_unrealized_pnl": 2.7996,
+      "open_unrealized_pnl": 2.3492,
       "closed_trades": 7,
       "wins": 4,
       "losses": 3,
@@ -36,7 +36,7 @@
           "side": "long",
           "size": 11.6,
           "entry": 9.346,
-          "mark": 9.397,
+          "mark": 9.368,
           "sl": 9.0,
           "tp": 10.038,
           "rr": 2.0,
@@ -44,7 +44,7 @@
           "rr_at_open": 2.0,
           "rr_note": "RR bij openen; blijft vast na SL-trailing",
           "leverage": 3.0,
-          "unrealized_pnl": 0.5916,
+          "unrealized_pnl": 0.2552,
           "opened_at": "2026-05-24T15:15:17.287+00:00",
           "protection": "SL/TP actief"
         },
@@ -53,7 +53,7 @@
           "side": "long",
           "size": 1.0,
           "entry": 15.137,
-          "mark": 17.345,
+          "mark": 17.231,
           "sl": 14.15,
           "tp": 18.407,
           "rr": 3.31,
@@ -61,7 +61,7 @@
           "rr_at_open": 3.31,
           "rr_note": "RR bij openen; blijft vast na SL-trailing",
           "leverage": 3.0,
-          "unrealized_pnl": 2.208,
+          "unrealized_pnl": 2.094,
           "opened_at": "2026-05-24T16:23:20.720629+00:00",
           "protection": "SL/TP actief"
         }
@@ -208,8 +208,8 @@
           "label": "ARKM"
         },
         {
-          "time": "2026-05-25T20:20:18.766293+00:00",
-          "value": 8.084581,
+          "time": "2026-05-25T20:35:12.401378+00:00",
+          "value": 7.634181,
           "label": "forecast incl. uPnL"
         }
       ],
@@ -227,10 +227,10 @@
       "current_equity": 97.067078,
       "account_performance": 1.644674,
       "account_performance_pct": 1.748,
-      "forecast_performance": 2.492174,
-      "forecast_performance_pct": 2.649,
+      "forecast_performance": 2.392774,
+      "forecast_performance_pct": 2.543,
       "realized_journal_pnl": 1.644674,
-      "open_unrealized_pnl": 0.8475,
+      "open_unrealized_pnl": 0.7481,
       "closed_trades": 5,
       "wins": 3,
       "losses": 2,
@@ -250,7 +250,7 @@
           "side": "long",
           "size": 0.11,
           "entry": 199.05,
-          "mark": 207.3,
+          "mark": 207.16,
           "sl": 196.804286,
           "tp": 221.45,
           "rr": 9.97,
@@ -258,7 +258,7 @@
           "rr_at_open": 9.97,
           "rr_note": "RR bij openen; blijft vast na SL-trailing",
           "leverage": 3.0,
-          "unrealized_pnl": 0.9075,
+          "unrealized_pnl": 0.8921,
           "opened_at": "2026-05-24T19:39:40.046098+00:00",
           "protection": "SL/TP actief"
         },
@@ -267,7 +267,7 @@
           "side": "long",
           "size": 3.0,
           "entry": 2.792,
-          "mark": 2.772,
+          "mark": 2.744,
           "sl": 2.6577,
           "tp": 3.31,
           "rr": 3.86,
@@ -275,7 +275,7 @@
           "rr_at_open": 2.0,
           "rr_note": "RR bij openen; blijft vast na SL-trailing",
           "leverage": 3.0,
-          "unrealized_pnl": -0.06,
+          "unrealized_pnl": -0.144,
           "opened_at": "2026-05-25T17:08:52.279159+00:00",
           "protection": "SL/TP actief"
         }
@@ -384,8 +384,8 @@
           "label": "POLYX"
         },
         {
-          "time": "2026-05-25T20:20:18.766531+00:00",
-          "value": 2.492174,
+          "time": "2026-05-25T20:35:12.401602+00:00",
+          "value": 2.392774,
           "label": "forecast incl. uPnL"
         }
       ],
@@ -397,9 +397,9 @@
     "start_equity": 210.692982,
     "current_equity": 215.638028,
     "account_performance": 6.929655,
-    "forecast_performance": 10.576755,
+    "forecast_performance": 10.026955,
     "external_cash_flow": 52.614056,
-    "open_unrealized_pnl": 3.6471,
+    "open_unrealized_pnl": 3.0973,
     "realized_journal_pnl": 6.929655,
     "open_positions_count": 4,
     "closed_trades": 12,
