@@ -1,105 +1,396 @@
 {
-  "generated_at": "2026-05-09T19:00:00Z",
-  "platforms": {
-    "phemex": {
-      "total_equity": 4123.45,
-      "total_pnl": 123.45,
-      "pnl_percentage": 3.09,
-      "last_updated": "2026-05-09T19:00:00Z",
-      "strategies": [
+  "generated_at": "2026-05-25T20:14:44.697589+00:00",
+  "source": "Phemex read-only status + synced fill journals; sanitized for public dashboard",
+  "traders": [
+    {
+      "id": "a",
+      "name": "Trader A",
+      "model": "DeepSeek",
+      "status": "active",
+      "start_equity": 116.6,
+      "raw_start_equity": 116.6,
+      "external_cash_flow": 0,
+      "current_equity": 118.57095,
+      "account_performance": 5.284981,
+      "account_performance_pct": 4.533,
+      "forecast_performance": 8.099981,
+      "forecast_performance_pct": 6.947,
+      "realized_journal_pnl": 5.284981,
+      "open_unrealized_pnl": 2.815,
+      "closed_trades": 7,
+      "wins": 4,
+      "losses": 3,
+      "winrate": 57.1,
+      "avg_rr_at_open": 3.52,
+      "rr_at_open_count": 9,
+      "open_positions_count": 2,
+      "open_positions": [
         {
-          "name": "BTC Grid Bot",
-          "equity": 2500.00,
-          "pnl": 87.50,
-          "pnl_percentage": 3.62,
-          "status": "active",
-          "open_positions": 3,
-          "positions": [
-            {
-              "symbol": "BTCUSDT",
-              "side": "long",
-              "size": 0.05,
-              "entry_price": 98500,
-              "current_price": 99200,
-              "pnl": 35.00,
-              "opened_at": "2026-05-09T15:30:00Z"
-            },
-            {
-              "symbol": "BTCUSDT",
-              "side": "long",
-              "size": 0.03,
-              "entry_price": 97800,
-              "current_price": 99200,
-              "pnl": 42.00,
-              "opened_at": "2026-05-09T12:15:00Z"
-            },
-            {
-              "symbol": "BTCUSDT",
-              "side": "short",
-              "size": 0.02,
-              "entry_price": 100500,
-              "current_price": 99200,
-              "pnl": 26.00,
-              "opened_at": "2026-05-09T18:00:00Z"
-            }
-          ]
+          "symbol": "AVAX",
+          "side": "long",
+          "size": 11.6,
+          "entry": 9.346,
+          "mark": 9.391,
+          "sl": 9.0,
+          "tp": 10.038,
+          "rr": 2.0,
+          "rr_current": 2.0,
+          "rr_at_open": 2.0,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "leverage": 3.0,
+          "unrealized_pnl": 0.522,
+          "opened_at": "2026-05-24T15:15:17.287+00:00",
+          "protection": "SL/TP actief"
         },
         {
-          "name": "ETH DCA",
-          "equity": 1623.45,
-          "pnl": 35.95,
-          "pnl_percentage": 2.26,
-          "status": "active",
-          "open_positions": 1,
-          "positions": [
-            {
-              "symbol": "ETHUSDT",
-              "side": "long",
-              "size": 0.5,
-              "entry_price": 3200,
-              "current_price": 3271.90,
-              "pnl": 35.95,
-              "opened_at": "2026-05-08T10:00:00Z"
-            }
-          ]
+          "symbol": "DEXE",
+          "side": "long",
+          "size": 1.0,
+          "entry": 15.137,
+          "mark": 17.43,
+          "sl": 14.15,
+          "tp": 18.407,
+          "rr": 3.31,
+          "rr_current": 3.31,
+          "rr_at_open": 3.31,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "leverage": 3.0,
+          "unrealized_pnl": 2.293,
+          "opened_at": "2026-05-24T16:23:20.720629+00:00",
+          "protection": "SL/TP actief"
         }
-      ]
-    },
-    "hyperliquid": {
-      "total_equity": 2890.12,
-      "total_pnl": -45.30,
-      "pnl_percentage": -1.54,
-      "last_updated": "2026-05-09T19:00:00Z",
-      "strategies": [
+      ],
+      "closed_trade_log": [
         {
-          "name": "Momentum Scalper",
-          "equity": 2890.12,
-          "pnl": -45.30,
-          "pnl_percentage": -1.54,
-          "status": "active",
-          "open_positions": 2,
-          "positions": [
-            {
-              "symbol": "SOL-PERP",
-              "side": "long",
-              "size": 10,
-              "entry_price": 145.50,
-              "current_price": 143.20,
-              "pnl": -23.00,
-              "opened_at": "2026-05-09T17:45:00Z"
-            },
-            {
-              "symbol": "ARB-PERP",
-              "side": "short",
-              "size": 100,
-              "entry_price": 0.85,
-              "current_price": 0.873,
-              "pnl": -22.30,
-              "opened_at": "2026-05-09T16:30:00Z"
-            }
-          ]
+          "symbol": "ARKM",
+          "side": "long",
+          "opened_at": "2026-05-25T13:36:16.582140+00:00",
+          "closed_at": "2026-05-25T16:36:52.244Z",
+          "entry": 0.1388,
+          "exit": 0.1464,
+          "net_pnl": 3.137191269999999,
+          "fees": 0.04720873,
+          "r_multiple": 3.940699999999972,
+          "rr_at_open": 8.47,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "source": "Phemex fills"
+        },
+        {
+          "symbol": "NEAR",
+          "side": "long",
+          "opened_at": "2026-05-24T12:17:31.826085+00:00",
+          "closed_at": "2026-05-25T13:54:51.875Z",
+          "entry": 2.366,
+          "exit": 2.618,
+          "net_pnl": 2.4957952699999977,
+          "fees": 0.02420473,
+          "r_multiple": 1.9807898968253967,
+          "rr_at_open": 2.0,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "source": "Phemex fills"
+        },
+        {
+          "symbol": "UAI",
+          "side": "long",
+          "opened_at": "2026-05-25T09:37:30.084257+00:00",
+          "closed_at": "2026-05-25T10:41:43.145Z",
+          "entry": 0.2865,
+          "exit": 0.2810000000000001,
+          "net_pnl": -0.6908399999999871,
+          "fees": 0.02424,
+          "r_multiple": -1.0363636363636266,
+          "rr_at_open": 6.47,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "source": "Phemex fills"
+        },
+        {
+          "symbol": "INJ",
+          "side": "long",
+          "opened_at": "2026-05-24T12:25:54.589638+00:00",
+          "closed_at": "2026-05-24T13:08:41.673Z",
+          "entry": 5.162,
+          "exit": 5.227,
+          "net_pnl": 0.8814990000000058,
+          "fees": 0.093501,
+          "r_multiple": 1.130126923076939,
+          "rr_at_open": 3.62,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "source": "Phemex fills"
+        },
+        {
+          "symbol": "ENJ",
+          "side": "short",
+          "opened_at": "2026-05-24T04:22:03.819636+00:00",
+          "closed_at": "2026-05-24T05:34:01.126Z",
+          "entry": 0.0402,
+          "exit": 0.04114,
+          "net_pnl": -0.30379124000000096,
+          "fees": 0.015211240000000001,
+          "r_multiple": -0.596113260861035,
+          "rr_at_open": -0.31,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "source": "Phemex fills"
+        },
+        {
+          "symbol": "GRT",
+          "side": "long",
+          "opened_at": "2026-05-23T20:15:45.766440+00:00",
+          "closed_at": "2026-05-24T04:34:50.315Z",
+          "entry": 0.02747,
+          "exit": 0.02676,
+          "net_pnl": -0.2712571700000008,
+          "fees": 0.01281717,
+          "r_multiple": -1.3073894833236954,
+          "rr_at_open": 3.56,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "source": "Phemex fills"
+        },
+        {
+          "symbol": "ID",
+          "side": "long",
+          "opened_at": "2026-05-23T16:54:41.700793+00:00",
+          "closed_at": "2026-05-23T17:29:56.441Z",
+          "entry": 0.03219,
+          "exit": 0.03233,
+          "net_pnl": 0.03638382009404212,
+          "fees": 0.006876179905956112,
+          "r_multiple": 0.1839796728056332,
+          "rr_at_open": 2.52,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "source": "Phemex fills"
         }
-      ]
+      ],
+      "equity_curve": [
+        {
+          "time": "2026-05-23T16:54:41.700793+00:00",
+          "value": 0.0,
+          "label": "start (cashflow gecorrigeerd)"
+        },
+        {
+          "time": "2026-05-23T17:29:56.441Z",
+          "value": 0.036384,
+          "label": "ID"
+        },
+        {
+          "time": "2026-05-24T04:34:50.315Z",
+          "value": -0.234873,
+          "label": "GRT"
+        },
+        {
+          "time": "2026-05-24T05:34:01.126Z",
+          "value": -0.538665,
+          "label": "ENJ"
+        },
+        {
+          "time": "2026-05-24T13:08:41.673Z",
+          "value": 0.342834,
+          "label": "INJ"
+        },
+        {
+          "time": "2026-05-25T10:41:43.145Z",
+          "value": -0.348006,
+          "label": "UAI"
+        },
+        {
+          "time": "2026-05-25T13:54:51.875Z",
+          "value": 2.14779,
+          "label": "NEAR"
+        },
+        {
+          "time": "2026-05-25T16:36:52.244Z",
+          "value": 5.284981,
+          "label": "ARKM"
+        },
+        {
+          "time": "2026-05-25T20:14:44.697303+00:00",
+          "value": 8.099981,
+          "label": "forecast incl. uPnL"
+        }
+      ],
+      "last_trade_log_sync_at": "2026-05-25T16:40:05+00:00",
+      "data_quality": "PNL = gesloten posities/realised journal. Open uPnL staat apart als forecast; externe stortingen/opnames tellen niet als PnL."
+    },
+    {
+      "id": "b",
+      "name": "Trader B",
+      "model": "HY3",
+      "status": "active",
+      "start_equity": 94.092982,
+      "raw_start_equity": 41.478926,
+      "external_cash_flow": 52.614056,
+      "current_equity": 97.067078,
+      "account_performance": 1.644674,
+      "account_performance_pct": 1.748,
+      "forecast_performance": 2.462374,
+      "forecast_performance_pct": 2.617,
+      "realized_journal_pnl": 1.644674,
+      "open_unrealized_pnl": 0.8177,
+      "closed_trades": 5,
+      "wins": 3,
+      "losses": 2,
+      "winrate": 60.0,
+      "avg_rr_at_open": 8.05,
+      "rr_at_open_count": 7,
+      "open_positions_count": 2,
+      "open_positions": [
+        {
+          "symbol": "SOXL",
+          "side": "long",
+          "size": 0.11,
+          "entry": 199.05,
+          "mark": 207.22,
+          "sl": 196.804286,
+          "tp": 221.45,
+          "rr": 9.97,
+          "rr_current": 9.97,
+          "rr_at_open": 9.97,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "leverage": 3.0,
+          "unrealized_pnl": 0.8987,
+          "opened_at": "2026-05-24T19:39:40.046098+00:00",
+          "protection": "SL/TP actief"
+        },
+        {
+          "symbol": "NEAR",
+          "side": "long",
+          "size": 3.0,
+          "entry": 2.792,
+          "mark": 2.765,
+          "sl": 2.6577,
+          "tp": 3.31,
+          "rr": 3.86,
+          "rr_current": 3.86,
+          "rr_at_open": 2.0,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "leverage": 3.0,
+          "unrealized_pnl": -0.081,
+          "opened_at": "2026-05-25T17:08:52.279159+00:00",
+          "protection": "SL/TP actief"
+        }
+      ],
+      "closed_trade_log": [
+        {
+          "symbol": "POLYX",
+          "side": "long",
+          "opened_at": "2026-05-25T01:49:25.631310+00:00",
+          "closed_at": "2026-05-25T19:37:52.748Z",
+          "entry": 0.05535165517241379,
+          "exit": 0.056530000000000004,
+          "net_pnl": 0.4907786600000025,
+          "fees": 0.02180134,
+          "r_multiple": 1.9068992501068758,
+          "rr_at_open": 10.51,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "source": "Phemex fills"
+        },
+        {
+          "symbol": "NEAR",
+          "side": "long",
+          "opened_at": "2026-05-24T16:27:44.158638+00:00",
+          "closed_at": "2026-05-25T16:51:16.439Z",
+          "entry": 2.412,
+          "exit": 2.808,
+          "net_pnl": 1.1795541499999997,
+          "fees": 0.008445850000000001,
+          "r_multiple": 4.227792652329749,
+          "rr_at_open": 4.26,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "source": "Phemex fills"
+        },
+        {
+          "symbol": "ONDO",
+          "side": "long",
+          "opened_at": "2026-05-25T04:17:29.473191+00:00",
+          "closed_at": "2026-05-25T09:33:34.251Z",
+          "entry": 0.4360619047619047,
+          "exit": 0.4361,
+          "net_pnl": -0.012150889999998178,
+          "fees": 0.01375089,
+          "r_multiple": -0.039297833117717694,
+          "rr_at_open": 7.27,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "source": "Phemex fills"
+        },
+        {
+          "symbol": "QNT",
+          "side": "long",
+          "opened_at": "2026-05-25T01:58:32.422905+00:00",
+          "closed_at": "2026-05-25T08:19:57.287Z",
+          "entry": 79.78,
+          "exit": 80.53,
+          "net_pnl": 0.20579429999999999,
+          "fees": 0.0192057,
+          "r_multiple": 0.9146413333333333,
+          "rr_at_open": 11.6,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "source": "Phemex fills"
+        },
+        {
+          "symbol": "ZEC",
+          "side": "long",
+          "opened_at": "2026-05-25T00:56:31.021414+00:00",
+          "closed_at": "2026-05-25T03:50:49.118Z",
+          "entry": 658.24,
+          "exit": 651.39,
+          "net_pnl": -0.21930249000000068,
+          "fees": 0.01380249,
+          "r_multiple": -1.0671654014598537,
+          "rr_at_open": 10.72,
+          "rr_note": "RR bij openen; blijft vast na SL-trailing",
+          "source": "Phemex fills"
+        }
+      ],
+      "equity_curve": [
+        {
+          "time": "2026-05-25T00:56:31.021414+00:00",
+          "value": 0.0,
+          "label": "start (cashflow gecorrigeerd)"
+        },
+        {
+          "time": "2026-05-25T03:50:49.118Z",
+          "value": -0.219302,
+          "label": "ZEC"
+        },
+        {
+          "time": "2026-05-25T08:19:57.287Z",
+          "value": -0.013508,
+          "label": "QNT"
+        },
+        {
+          "time": "2026-05-25T09:33:34.251Z",
+          "value": -0.025659,
+          "label": "ONDO"
+        },
+        {
+          "time": "2026-05-25T16:51:16.439Z",
+          "value": 1.153895,
+          "label": "NEAR"
+        },
+        {
+          "time": "2026-05-25T19:37:52.748Z",
+          "value": 1.644674,
+          "label": "POLYX"
+        },
+        {
+          "time": "2026-05-25T20:14:44.697553+00:00",
+          "value": 2.462374,
+          "label": "forecast incl. uPnL"
+        }
+      ],
+      "last_trade_log_sync_at": "2026-05-25T19:40:42+00:00",
+      "data_quality": "PNL = gesloten posities/realised journal. Open uPnL staat apart als forecast; externe stortingen/opnames tellen niet als PnL."
     }
+  ],
+  "totals": {
+    "start_equity": 210.692982,
+    "current_equity": 215.638028,
+    "account_performance": 6.929655,
+    "forecast_performance": 10.562355,
+    "external_cash_flow": 52.614056,
+    "open_unrealized_pnl": 3.6327,
+    "realized_journal_pnl": 6.929655,
+    "open_positions_count": 4,
+    "closed_trades": 12,
+    "avg_rr_at_open": 5.5
   }
 }

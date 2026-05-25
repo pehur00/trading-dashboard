@@ -1,0 +1,10 @@
+{
+  "b": [
+    {
+      "time": "2026-05-25T19:08:04+00:00",
+      "type": "deposit",
+      "amount": 52.614056,
+      "note": "Trader B funding top-up; excluded from trading performance. Estimated as current equity minus original start equity minus realized journal PnL minus open uPnL at reconciliation."
+    }
+  ]
+}
