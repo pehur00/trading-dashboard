@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T02:41:51.574156+00:00",
+  "generated_at": "2026-05-26T03:01:26.315169+00:00",
   "source": "Phemex read-only status + synced fill journals; sanitized for public dashboard",
   "traders": [
     {
@@ -13,10 +13,10 @@
       "current_equity": 116.036676,
       "account_performance": 2.755289,
       "account_performance_pct": 2.363,
-      "forecast_performance": 6.914489,
-      "forecast_performance_pct": 5.93,
+      "forecast_performance": 6.990989,
+      "forecast_performance_pct": 5.996,
       "realized_journal_pnl": 2.755289,
-      "open_unrealized_pnl": 4.1592,
+      "open_unrealized_pnl": 4.2357,
       "closed_trades": 10,
       "wins": 4,
       "losses": 6,
@@ -36,7 +36,7 @@
           "side": "short",
           "size": 75.0,
           "entry": 1.045602667,
-          "mark": 1.021,
+          "mark": 1.0203,
           "sl": 1.0512,
           "tp": 0.9417,
           "rr": 18.56,
@@ -44,7 +44,7 @@
           "rr_at_open": 2.0,
           "rr_note": "RR bij openen; blijft vast na SL-trailing",
           "leverage": 3.0,
-          "unrealized_pnl": 1.845200025,
+          "unrealized_pnl": 1.897700025,
           "opened_at": "2026-05-25T23:33:58.056650+00:00",
           "protection": "SL/TP actief"
         },
@@ -53,7 +53,7 @@
           "side": "long",
           "size": 1.0,
           "entry": 15.137,
-          "mark": 17.451,
+          "mark": 17.475,
           "sl": 14.15,
           "tp": 18.407,
           "rr": 3.31,
@@ -61,7 +61,7 @@
           "rr_at_open": 3.31,
           "rr_note": "RR bij openen; blijft vast na SL-trailing",
           "leverage": 3.0,
-          "unrealized_pnl": 2.314,
+          "unrealized_pnl": 2.338,
           "opened_at": "2026-05-24T16:23:20.720629+00:00",
           "protection": "SL/TP actief"
         }
@@ -265,8 +265,8 @@
           "label": "AVAX"
         },
         {
-          "time": "2026-05-26T02:41:51.573570+00:00",
-          "value": 6.914489,
+          "time": "2026-05-26T03:01:26.314870+00:00",
+          "value": 6.990989,
           "label": "forecast incl. uPnL"
         }
       ],
@@ -284,10 +284,10 @@
       "current_equity": 97.179658,
       "account_performance": 2.370673,
       "account_performance_pct": 2.52,
-      "forecast_performance": 2.160673,
-      "forecast_performance_pct": 2.296,
+      "forecast_performance": 2.148673,
+      "forecast_performance_pct": 2.284,
       "realized_journal_pnl": 2.370673,
-      "open_unrealized_pnl": -0.21,
+      "open_unrealized_pnl": -0.222,
       "closed_trades": 6,
       "wins": 4,
       "losses": 2,
@@ -307,7 +307,7 @@
           "side": "long",
           "size": 3.0,
           "entry": 2.792,
-          "mark": 2.722,
+          "mark": 2.718,
           "sl": 2.6577,
           "tp": 3.31,
           "rr": 3.86,
@@ -315,7 +315,7 @@
           "rr_at_open": 2.0,
           "rr_note": "RR bij openen; blijft vast na SL-trailing",
           "leverage": 3.0,
-          "unrealized_pnl": -0.21,
+          "unrealized_pnl": -0.222,
           "opened_at": "2026-05-25T17:08:52.279159+00:00",
           "protection": "SL/TP actief"
         }
@@ -443,8 +443,8 @@
           "label": "SOXL"
         },
         {
-          "time": "2026-05-26T02:41:51.574102+00:00",
-          "value": 2.160673,
+          "time": "2026-05-26T03:01:26.315137+00:00",
+          "value": 2.148673,
           "label": "forecast incl. uPnL"
         }
       ],
@@ -456,9 +456,9 @@
     "start_equity": 210.692982,
     "current_equity": 213.216334,
     "account_performance": 5.125962,
-    "forecast_performance": 9.075162,
+    "forecast_performance": 9.139662,
     "external_cash_flow": 52.614056,
-    "open_unrealized_pnl": 3.9492,
+    "open_unrealized_pnl": 4.0137,
     "realized_journal_pnl": 5.125962,
     "open_positions_count": 3,
     "closed_trades": 16,
